@@ -4,4 +4,11 @@
     <string name="Title">Categories</string>
     <string name="app_name">Nutridex</string>
 
+    <string-array name="columns">
+        <item>Name</item>
+        <item>KCal</item>
+        <item>Prot</item>
+        <item>Lipid</item>
+        <item>Carbo</item>
+    </string-array>
 </resources>

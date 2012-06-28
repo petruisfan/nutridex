@@ -7,6 +7,7 @@ import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 public class FoodActivity extends ListActivity {
 
@@ -19,13 +20,15 @@ public class FoodActivity extends ListActivity {
         dbAdapter = new DatabaseAdapter(this);
         dbAdapter.open();
         fillData();
-//        registerForContextMenu(getListView());
     }
 
     private void fillData() {
     	Bundle extras = getIntent().getExtras();
     	int tableNr = extras.getInt("TABLE");
     	Cursor notesCursor = dbAdapter.fetchTable(tableNr);
+
+    	
+    	fillHeaders();
     	
         // Get all of the rows from the database and create the item list
         startManagingCursor(notesCursor);
@@ -41,5 +44,15 @@ public class FoodActivity extends ListActivity {
         
         setListAdapter(notes);
     }
+
+	private void fillHeaders() {
+		String[] headersText = getResources().getStringArray(R.array.columns);
+		
+		((TextView)findViewById(R.id.column0)).setText(headersText[0]);
+		((TextView)findViewById(R.id.column1)).setText(headersText[1]);
+		((TextView)findViewById(R.id.column2)).setText(headersText[2]);
+		((TextView)findViewById(R.id.column3)).setText(headersText[3]);
+		((TextView)findViewById(R.id.column4)).setText(headersText[4]);
+	}
 
 }
