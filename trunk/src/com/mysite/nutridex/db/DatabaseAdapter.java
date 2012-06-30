@@ -2,6 +2,13 @@ package com.mysite.nutridex.db;
 
 import java.util.ArrayList;
 
+import com.mysite.nutridex.db.tables.Fruits;
+import com.mysite.nutridex.db.tables.GrainsAndPasta;
+import com.mysite.nutridex.db.tables.Meat;
+import com.mysite.nutridex.db.tables.MilkAndEgg;
+import com.mysite.nutridex.db.tables.NutAndSeed;
+import com.mysite.nutridex.db.tables.Vegetables;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,7 +20,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper{
 	private static final String TAG = DatabaseAdapter.class.getSimpleName();
 	
 	private static final String DATABASE_NAME = "Nutridex";
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 1;
 	
 	ArrayList<AbstractTable> categories = new ArrayList<AbstractTable>();
 
@@ -29,6 +36,9 @@ public class DatabaseAdapter extends SQLiteOpenHelper{
 		categories.add(new MilkAndEgg());
 		categories.add(new Meat());
 		categories.add(new Vegetables());
+		categories.add(new Fruits());
+		categories.add(new GrainsAndPasta());
+		categories.add(new NutAndSeed());
 	
 		database = getWritableDatabase();
 	}
@@ -61,7 +71,7 @@ public class DatabaseAdapter extends SQLiteOpenHelper{
 		ArrayList<String> result = new ArrayList<String>();
 
 		for (AbstractTable table: categories) {
-			result.add(table.getName());
+			result.add(table.getLabelName());
 		}
 		return result;
 	}

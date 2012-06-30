@@ -3,7 +3,7 @@ package com.mysite.nutridex;
 import java.util.ArrayList;
 
 import com.mysite.nutridex.db.DatabaseAdapter;
-import com.mysite.nutridex.util.FileUtil;
+import com.mysite.nutridex.util.ResourceUtil;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -23,7 +22,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.main);
         
-        FileUtil.setResources(getResources());	// set the resources so that file utils can acces them.
+        ResourceUtil.setResources(getResources());	// set the resources so that resource utils can acces them.
         
         ListView listView = (ListView) findViewById(R.id.listView);
         
@@ -43,8 +42,10 @@ public class MainActivity extends Activity {
 //        			"Click ListItem Number " + position, Toast.LENGTH_LONG)
 //        			.show();
         		Intent intent = new Intent(getApplicationContext(), FoodActivity.class);
-        		intent.putExtra("TABLE", position);
+        		intent.putExtra(getString(R.string.table), position);
         		startActivity(intent);
+        		
+        		
         	}
         });
     }

@@ -6,8 +6,12 @@ import com.mysite.nutridex.db.DatabaseAdapter;
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FoodActivity extends ListActivity {
 
@@ -24,7 +28,7 @@ public class FoodActivity extends ListActivity {
 
     private void fillData() {
     	Bundle extras = getIntent().getExtras();
-    	int tableNr = extras.getInt("TABLE");
+    	int tableNr = extras.getInt(getString(R.string.table));
     	Cursor notesCursor = dbAdapter.fetchTable(tableNr);
 
     	
@@ -55,4 +59,22 @@ public class FoodActivity extends ListActivity {
 		((TextView)findViewById(R.id.column4)).setText(headersText[4]);
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.menu, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		switch (item.getItemId()){
+		case R.id.about:
+			Toast.makeText(getApplicationContext(),
+        			"Nutridex 2012 (c) All rights reserved" , Toast.LENGTH_LONG)
+        			.show();
+		}
+		return super.onOptionsItemSelected(item);
+	}
 }

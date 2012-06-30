@@ -14,8 +14,8 @@
 
             <TextView
                 android:id="@+id/column0"
-                android:layout_width="200dip"
-                android:layout_weight="3"
+                android:layout_width="240dip"
+                android:layout_weight="4"
                 style="@style/HeaderItem"/>
             
             <TextView
@@ -48,7 +48,7 @@
                 android:id="@+id/android:empty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="no_notes" />
+                android:text="No records" />
         </LinearLayout>
     </LinearLayout>
 

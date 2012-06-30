@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="Title">Categories</string>
+    <string name="Title">Categories:</string>
     <string name="app_name">Nutridex</string>
+    <string name="table">TABLE</string>
 
+    <!-- Category names -->
+    <string name="vegetables">Vegetables</string>
+    <string name="fruits">Fruits</string>
+    <string name="grains">Grains and Pasta</string>
+    <string name="meat">Meat</string>
+    <string name="milk">Milk and Egg</string>
+    <string name="nut">Nut and Seed</string>
+    
+    <!-- Column names -->
     <string-array name="columns">
         <item>Name</item>
         <item>KCal</item>
@@ -11,4 +21,9 @@
         <item>Lipid</item>
         <item>Carbo</item>
     </string-array>
+    
+    <!-- Menu items -->
+    <string name="about">About</string>
+    <string name="language">Language</string>
+    <string name="search">Search</string>
 </resources>
