@@ -4,13 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 import com.mysite.nutridex.exceptions.FileFormatException;
-import com.mysite.nutridex.util.FileUtil;
+import com.mysite.nutridex.util.ResourceUtil;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 public abstract class AbstractTable {
 	String TABLE_NAME;
+	String LABEL_NAME="";
 	
 	static final String INDEX = "_id";
 	static final String NAME_EN = "Name_en";
@@ -40,21 +41,13 @@ public abstract class AbstractTable {
 		TABLE_DROP  = "drop table if exists " + TABLE_NAME;
 	}
 
-	public String createTable() {
-		return TABLE_CREATE;
-	}
-	
-	public String dropTable() {
-		return TABLE_DROP;
-	}
-	
-	public String getName() {
-		return TABLE_NAME;
-	}
+	public String createTable() { return TABLE_CREATE; }
+	public String dropTable() { return TABLE_DROP; }
+	public String getName() { return TABLE_NAME; }
 	
 	public boolean populateTable(SQLiteDatabase db) {
 		try {
-			BufferedReader br = FileUtil.getBufferedReaderForAsset(TABLE_NAME + ".csv");
+			BufferedReader br = ResourceUtil.getBufferedReaderForAsset(TABLE_NAME + ".csv");
 			
 			String InsertString1 = "INSERT INTO " + TABLE_NAME + " (" + TABLE_COLUMNS + ") values(";
 			String InsertString2 = ");";
@@ -93,5 +86,5 @@ public abstract class AbstractTable {
 	}
 	
 	public static final String[] getTableColumns() { return TABLE_COLUMNS.split(","); }
-
+	public abstract String getLabelName();
 }

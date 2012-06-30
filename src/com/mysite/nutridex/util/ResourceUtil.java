@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 
 import android.content.res.Resources;
 
-public class FileUtil {
+public class ResourceUtil {
 
 	private static Resources resources;
 	
@@ -21,4 +21,10 @@ public class FileUtil {
 		BufferedReader result = new BufferedReader(new InputStreamReader(iS));
 		return result;
 	}
+
+	public static String getStringResource(int id) {
+		return resources.getString(id);
+	}
+	
+	
 }
