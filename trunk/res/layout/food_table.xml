@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TableLayout
+            android:id="@+id/food_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/column0"
+                    style="@style/HeaderItem"
+                    android:layout_width="240dip"
+                    />
+
+                <TextView
+                    android:id="@+id/column1"
+                    style="@style/HeaderItem" />
+
+                <TextView
+                    android:id="@+id/column2"
+                    style="@style/HeaderItem" />
+
+                <TextView
+                    android:id="@+id/column3"
+                    style="@style/HeaderItem" />
+
+                <TextView
+                    android:id="@+id/column4"
+                    style="@style/HeaderItem" />
+            </TableRow>
+        </TableLayout>
+    </HorizontalScrollView>
+
+</ScrollView>
